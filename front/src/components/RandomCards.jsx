@@ -12,10 +12,10 @@ class RandomCards extends React.Component {
                 return (
                     <div key={index} className="card">
                         <button onClick={onClose} id={character.id}>X</button>
-                        <div>{character.name}</div>
-                        <div>{character.species}</div>
-                        <div>{character.gender}</div>
-                        <img src={character.image} alt={character.name}/>
+                        <div>{character.nombre}</div>
+                        <div>{character.genero}</div>
+                        <div>{character.edad}</div>
+                        <img src={`http://localhost:3001/imgs/${character.id}`} alt={character.nombre}/>
                     </div>
                 )
             })

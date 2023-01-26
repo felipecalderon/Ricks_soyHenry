@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import SearchBar from "./SearchBar";
 import Cards from "./Cards";
 
-const URL = 'https://rickandmortyapi.com/api/character/'
+const URL = 'http://localhost:3001'
 
 const apiRYM = async (url) => {
   const res = await fetch(url);
@@ -11,7 +11,6 @@ const apiRYM = async (url) => {
 }
 
 function Home() {
-    const [cantidad, setCantidad] = useState(null)
     const [characters, setCharacters] = useState({
         personajesActivos: [],
         allPersonajes: []
@@ -19,8 +18,7 @@ function Home() {
 
     const getAll = (e) => {
         e.preventDefault();
-        let random = Math.floor(Math.random()*cantidad)
-        apiRYM(URL+random).then(data => {
+        apiRYM(URL).then(data => {
           setCharacters({...characters, personajesActivos: [data]})
     })
   }
@@ -34,8 +32,7 @@ function Home() {
   }
   useEffect(() => {
     apiRYM(URL).then(data => { 
-        setCharacters({personajesActivos: data.results, allPersonajes: data.results}) 
-        setCantidad(data.info.count)
+        setCharacters({personajesActivos: data, allPersonajes: data}) 
     })
   }, [])
   return (
@@ -53,7 +50,7 @@ function Home() {
                 characters={characters.personajesActivos} 
                 onClose={onClose}
               />
-            : 'Presione botón para obtener personajes'
+            : 'No hay personajes'
         }
       </div>
     </>

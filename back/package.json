@@ -1,0 +1,19 @@
+{
+  "name": "02---integration",
+  "version": "1.0.0",
+  "description": "## **🕒 Duración estimada**",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5"
+  }
+}
