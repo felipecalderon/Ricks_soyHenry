@@ -1,11 +1,13 @@
 // import characters, { Rick } from './data.js'
 
+import {Route, Routes} from 'react-router-dom'
+import { useEffect, useState } from 'react';
 import Home from './components/Home';
 import Nav from './components/Nav'
-import {Route, Routes} from 'react-router-dom'
+import Favourites from './components/Favourite';
 import './App.css';
-import { useEffect, useState } from 'react';
 const App = () => {
+
   const [bgImg, setBgImg] = useState('')
     useEffect(() => {
       fetch("https://api.unsplash.com/photos/random/?query=los+simpson&client_id=1eXsHaR8jPSWv-89XXEeHJ9Z6oEihkGef6tM5Iu2Ca4")
@@ -17,10 +19,12 @@ const App = () => {
       backgroundImage: `url(${bgImg})`,
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
+      height: '100%',
     }}>
     <Nav />
     <Routes>
       <Route path='/' element={<Home />} />
+      <Route path='/favoritos' element={<Favourites />} />
     </Routes>
     </div>
 

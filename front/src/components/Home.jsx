@@ -1,54 +1,51 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import SearchBar from "./SearchBar";
 import Cards from "./Cards";
-
-const URL = 'http://localhost:3001'
-
-const apiRYM = async (url) => {
-  const res = await fetch(url);
-  const data = await res.json();
-  return data;
-}
+import { useDispatch, useSelector } from "react-redux";
+import * as actions from '../redux/actions'
 
 function Home() {
-    const [characters, setCharacters] = useState({
-        personajesActivos: [],
-        allPersonajes: []
-        })
+  const personajes = useSelector((state) => state.personajes)
+  const favoritos = useSelector((state) => state.favoritos)
 
-    const getAll = (e) => {
-        e.preventDefault();
-        apiRYM(URL).then(data => {
-          setCharacters({...characters, personajesActivos: [data]})
-    })
-  }
+  const dispatch = useDispatch()
 
   const onClose = (e) => {
-    const dataFilter = characters.personajesActivos.filter((per) => per.id !== Number(e.target.id))
-    setCharacters({
-      ...characters,
-      personajesActivos: dataFilter
-    })
+    console.log(e.target.id)
   }
+
+  const onSearch = (e) => {
+    personajes.filter((personaje) => {
+        return personaje.id === Number(e.target.value) || personaje.nombre.toLowerCase().includes(e.target.value)
+    }) 
+
+    if(e.key === 'Enter') e.target.value = ''
+  }
+
+  const onFavorito = (e) => {
+    if(favoritos.includes(personajes[e.target.id - 1])) return alert(`${personajes[e.target.id - 1].nombre} ya está en tus favoritos`)
+    dispatch(actions.addFav(e.target.id))
+    
+  }
+  
   useEffect(() => {
-    apiRYM(URL).then(data => { 
-        setCharacters({personajesActivos: data, allPersonajes: data}) 
-    })
+    dispatch(actions.getCharacters())
   }, [])
+
   return (
     <>
       <SearchBar 
-        getAll={getAll} 
-        personajes={characters.allPersonajes}
-        setCharacters={setCharacters}
-        characters={characters}
+        onSearch={onSearch}
         />
       <div className="App">
         {
-          characters.personajesActivos.length > 0
+          personajes.length > 0
             ? <Cards 
-                characters={characters.personajesActivos} 
+                favoritos={favoritos}
+                personajes={personajes} 
                 onClose={onClose}
+                onFavorito={onFavorito}
               />
             : 'No hay personajes'
         }

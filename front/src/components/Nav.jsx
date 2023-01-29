@@ -4,10 +4,8 @@ const Nav = () => {
     return (
     <div >
         <ul className={styles.nav}>
-            <li><Link to="/">Menu 1</Link></li>
-            <li><Link to="/personaje">Menu 2</Link></li>
-            <li>Menu 3</li>
-            <li>Menu 4</li>
+            <li><Link to="/">Personajes</Link></li>
+            <li><Link to="/favoritos">Favoritos</Link></li>
         </ul>
     </div>
     )
