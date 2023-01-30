@@ -1,15 +1,14 @@
 import { useState } from 'react'
 import styles from './Cards.module.css'
 
-const Cards = ({personajes, onClose, favoritos, onFavorito}) => {
+const Cards = ({personajes, favoritos, onFavorito}) => {
     return (
         personajes.map((personaje, index) => {
             const isFav = favoritos.some(favo => favo.id === personaje.id)
             // let random = Math.floor(Math.random()*personaje.frases.length)
             return (
                     <div key={index} className={styles.card}>
-                        <button onClick={onClose} id={personaje.id}>X</button>
-                        <button onClick={onFavorito} id={personaje.id}>{isFav ? '💚': '🤍'}</button>
+                        <button onClick={onFavorito} id={personaje.id}>{!isFav ? '🤍' : '💚'}</button>
                         <h2>{personaje.nombre}</h2>
                         {/* <div>Género: {personaje.genero}</div>
                         <div>Edad: {personaje.edad} años</div> */}

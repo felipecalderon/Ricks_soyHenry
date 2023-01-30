@@ -2,9 +2,9 @@
 
 import {Route, Routes} from 'react-router-dom'
 import { useEffect, useState } from 'react';
-import Home from './components/Home';
-import Nav from './components/Nav'
-import Favourites from './components/Favourite';
+import Home from './components/Home/Home';
+import Nav from './components/Nav/Nav'
+import Favourites from './components/Favourites/Favourite';
 import './App.css';
 const App = () => {
 
@@ -19,7 +19,7 @@ const App = () => {
       backgroundImage: `url(${bgImg})`,
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
-      height: '100%',
+      height: '100vh',
     }}>
     <Nav />
     <Routes>

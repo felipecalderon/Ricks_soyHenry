@@ -1,9 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
-import SearchBar from "./SearchBar";
-import Cards from "./Cards";
+import SearchBar from "../Search/SearchBar";
+import Cards from "../Cards/Cards";
 import { useDispatch, useSelector } from "react-redux";
-import * as actions from '../redux/actions'
+import * as actions from '../../redux/actions'
+import styles from './Home.module.css'
 
 function Home() {
   const personajes = useSelector((state) => state.personajes)
@@ -24,7 +25,7 @@ function Home() {
   }
 
   const onFavorito = (e) => {
-    if(favoritos.includes(personajes[e.target.id - 1])) return alert(`${personajes[e.target.id - 1].nombre} ya está en tus favoritos`)
+    if(favoritos.includes(personajes[e.target.id - 1])) return alert(`${personajes[e.target.id - 1].nombre} ya está en favoritos`)
     dispatch(actions.addFav(e.target.id))
     
   }
@@ -38,7 +39,7 @@ function Home() {
       <SearchBar 
         onSearch={onSearch}
         />
-      <div className="App">
+      <div className={styles.container}>
         {
           personajes.length > 0
             ? <Cards 
