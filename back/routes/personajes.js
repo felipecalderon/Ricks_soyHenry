@@ -1,14 +1,8 @@
 const rutaPersonaje = require("express").Router()
-const db = require('../data');
+const controllers = require('../controller/personaje.controller.js')
 
-rutaPersonaje.get('/', (req, res) => {
-    res.json(db)
- })
+rutaPersonaje.get('/', controllers.getAll)
 
-rutaPersonaje.get('/:id', (req, res) => {
-    const {id} = req.params
-    const filtro = db.filter(personaje => personaje.id === Number(id))
-    res.json(filtro)
- })
+rutaPersonaje.get('/:id', controllers.getId)
 
 module.exports = { rutaPersonaje }

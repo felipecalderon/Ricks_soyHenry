@@ -1,12 +1,6 @@
 const rutaImgs = require("express").Router()
-const path = require('path');
-const db = require('../data');
+const controllers = require("../controller/imgs.controller.js")
 
-rutaImgs.get("/:id", (req, res) => {
-    const {id} = req.params
-    const usrData = db.find(personaje => personaje.id === Number(id))
-    if (!usrData) return res.json({err: "Imagen no econtrada"})
-    res.sendFile(path.resolve(`./imgs/${id}.jpg`))
-})
+rutaImgs.get("/:id", controllers.getImg)
 
 module.exports = { rutaImgs }
