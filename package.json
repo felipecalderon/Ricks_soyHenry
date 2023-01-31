@@ -1,0 +1,22 @@
+{
+  "name": "Los simpson API & React",
+  "version": "1.0.0",
+  "description": "** Front React && Back Express**",
+  "main": "index.js",
+  "scripts": {
+    "back": "cd back && nodemon app.js",
+    "front": "cd front && node node_modules/react-scripts/bin/react-scripts.js start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felipecalderon/Ricks_soyHenry.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/felipecalderon/Ricks_soyHenry/issues"
+  },
+  "homepage": "https://github.com/felipecalderon/Ricks_soyHenry#readme"
+}

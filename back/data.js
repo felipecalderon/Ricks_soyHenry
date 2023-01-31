@@ -1,6 +1,8 @@
 const characters = [
   {
     id: 1,
+    alias: "Homero",
+    familia: "Simpson",
     nombre: "Homero Jay Simpson",
     genero: "Masculino",
     edad: 38,
@@ -9,7 +11,9 @@ const characters = [
   },
   {
     id: 2,
-    nombre: 'Marjorie "Marge" Jaqueline Bouvier Simpson',
+    alias: "Marge",
+    familia: "Simpson",
+    nombre: 'Marjorie Jaqueline Bouvier Simpson',
     genero: "Femenino",
     edad: 34,
     frases: ["Hmmmm (gruñido)", "En un momento asi, solo se puede reir", "Tal vez la muerte ponga fin a tus protestas", "A veces siento que la familia me vuelve loca y quiero ¡estallar!"],
@@ -17,6 +21,8 @@ const characters = [
   },
   {
     id: 3,
+    alias: "Bart",
+    familia: "Simpson",
     nombre: "Bartolomeo Jay Simpson",
     genero: "Masculino",
     edad: 10,
@@ -25,6 +31,8 @@ const characters = [
   },
   {
     id: 4,
+    alias: "Lisa",
+    familia: "Simpson",
     nombre: "Lisa Marie Simpson",
     genero: "Femenino",
     edad: 8,    
@@ -33,7 +41,9 @@ const characters = [
   },
   {
     id: 5,
-    nombre: 'Margaret "Maggie" Abigail Simpson',
+    alias: "Maggie",
+    familia: "Simpson",
+    nombre: 'Margaret Abigail Simpson',
     genero: "Femenino",
     edad: 1,
     frases: ["Chuk Chuk (sonido de chupete)", "Papi", "Perfectirijillo"],
