@@ -36,9 +36,9 @@ function Home() {
 
   return (
     <>
-      <SearchBar 
+      {/* <SearchBar 
         onSearch={onSearch}
-        />
+        /> */}
       <div className={styles.container}>
         {
           personajes.length > 0
@@ -51,6 +51,10 @@ function Home() {
             : 'No hay personajes'
         }
       </div>
+      <section>
+        <img src="https://i.pinimg.com/originals/f8/f3/c3/f8f3c3e177614d714df81f9294ee11ff.png" alt="" sizes="" srcset="" />
+        <p>Mmm mmm mmira Morty, no hizo nuestra API, <i>brpp</i>, hizo un <i>brpp</i> diseño de los Simpson <i>brrpp</i></p>
+      </section>
     </>
   );
 }

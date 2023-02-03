@@ -9,10 +9,10 @@ const Cards = ({personajes, favoritos, onFavorito}) => {
             return (
                     <div key={index} className={styles.card}>
                         <button onClick={onFavorito} id={personaje.id}>{!isFav ? '🤍' : '💚'}</button>
-                        <h2>{personaje.nombre}</h2>
                         {/* <div>Género: {personaje.genero}</div>
                         <div>Edad: {personaje.edad} años</div> */}
                         <img src={`http://localhost:3001/imgs/${personaje.id}`} alt={personaje.name}/>
+                        <h2>{personaje.alias}</h2>
                         {/* <p>{personaje.frases[random]}</p> */}
                     </div>
                 )

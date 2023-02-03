@@ -10,7 +10,7 @@ const App = () => {
 
   const [bgImg, setBgImg] = useState('')
     useEffect(() => {
-      fetch("https://api.unsplash.com/photos/random/?query=los+simpson&client_id=1eXsHaR8jPSWv-89XXEeHJ9Z6oEihkGef6tM5Iu2Ca4")
+      fetch("https://api.unsplash.com/photos/random/?topic=textures-patterns&client_id=1eXsHaR8jPSWv-89XXEeHJ9Z6oEihkGef6tM5Iu2Ca4")
       .then(res => res.json())
       .then(data => setBgImg(data.urls.regular))
     }, [])
@@ -19,7 +19,6 @@ const App = () => {
       backgroundImage: `url(${bgImg})`,
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
-      height: '100vh',
     }}>
     <Nav />
     <Routes>

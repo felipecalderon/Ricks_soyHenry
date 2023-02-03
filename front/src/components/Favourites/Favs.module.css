@@ -1,4 +1,5 @@
 .cards{
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -6,6 +7,7 @@
     align-items: center;
     gap: 1em;
     height: 92vh;
+    z-index: 2;
 }
 
 .card{
@@ -27,9 +29,6 @@
     transition: 500ms;
 }
 
-p{
-    font-style: italic;
-}
 button{
     border: none;
     color: white;
@@ -42,4 +41,27 @@ button{
 }
 button:hover{
     opacity: 1;
+}
+.seccion{
+    display: flex;
+    position: fixed;
+    position: relative;
+    margin-top: -600px;
+    z-index: 1;
+}
+.seccion>p{
+    font-size: xx-large;
+    background-color: white;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    margin-right: 30px;
+    margin-left: 420px;
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 20px;
+}
+.seccion>img{
+    margin-left: -200px;
 }
